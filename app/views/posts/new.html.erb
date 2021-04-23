@@ -1,0 +1,13 @@
+<div class='container'>
+<%= form_with model: @user do |form| %>
+  <%= form.label :title, "Title:" %>
+  <br />
+  <%= form.text_field :title, placeholder: "Enter Title"%>
+  <br /><br />
+  <%= form.label :content, "Content:" %>
+  <br />
+  <%= form.text_field :content, placeholder: "Enter what you want to write about"%>
+  <br /><br />
+  <%= form.submit "Submit", class: "submit" %>
+<% end %>
+</div>
