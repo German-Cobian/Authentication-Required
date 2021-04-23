@@ -391,3 +391,10 @@ Processing by PostsController#new as HTML
 Completed 200 OK in 132ms (Views: 130.5ms | ActiveRecord: 0.0ms | Allocations: 11875)
 
 
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from migration_template at (erb):6)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /Users/doracobian/CodingProjects/Members-only/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /Users/doracobian/CodingProjects/Members-only/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /Users/doracobian/CodingProjects/Members-only/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /Users/doracobian/CodingProjects/Members-only/bin/rails:5)
+DEPRECATION WARNING: [] is deprecated and will be removed from Rails 6.2 (Use configs_for) (called from <main> at /Users/doracobian/CodingProjects/Members-only/bin/rails:5)
