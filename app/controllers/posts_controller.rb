@@ -1,20 +1,38 @@
 class PostsController < ApplicationController
-# before_action :require_login, only: [:new, :create]
-  
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
+    @posts = Post.all
+    @users = User.all
   end
-  
+
+  def show
+    @posts = Post.all
+    @users = User.all
+  end
+
   def new
-    @post = Post.new   
+    @post = Post.new
   end
 
   def create
-    @post = Post.new(title: "...", content: "...")
-
+    
+    @post = current_user.posts.build(post_params)
+    
     if @post.save
-      redirect_to @post
+      redirect_to root_path
     else
       render :new
     end
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :content, :user_id)
   end
 end

@@ -11,8 +11,47 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <% if flash[:noticer] %>
+      <div class="">
+        <p class=""><%= flash[:notice] %></p>
+      </div>
+    <% elsif flash[:alertr] %>
+      <div class="">
+        <p class=""><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+
+    <nav class="" role="navigation">
+      <div class="">
+        <%= link_to root_path, class: "" do %>
+          <h1 class="">Members Only</h1>
+        <% end %>
+      </div>
+      <div class="navbar-menu" id="navbarExample">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <%= link_to "New Topic", new_post_path, class: "" %>
+          </div>
+
+          <% if user_signed_in? %>
+          <div class="navbar-item">
+            <%= link_to current_user.username, edit_user_registration_path, class: ""%>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: ""%>
+          </div>
+          <% else %>
+          <div class="navbar-item">
+            <%= link_to "New User", new_user_registration_path, class: ""%>
+          </div>
+          <div class="navbar-item">
+            <%= link_to "Log In", new_user_session_path, class: ""%>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

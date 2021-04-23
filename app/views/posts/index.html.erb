@@ -1,3 +1,25 @@
 <h1>Posts#index</h1>
 
-<p>Find me in app/views/posts/index.html.erb</p>
+
+<ul>
+  <% @posts.each do |post| %>
+   <li>
+       <%= post.title %>
+    </li>
+  <% end %>
+</ul>
+
+
+<ul>
+  <% @users.each do |user| %>
+    <% if user_signed_in? %>
+      <li>
+        <%= user.username %>
+      </li>
+    <% else %>
+      <li>
+        ***
+      </li>
+    <% end %>
+  <% end %>
+</ul>
