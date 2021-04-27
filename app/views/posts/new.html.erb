@@ -1,13 +1,21 @@
-<div class='container'>
+<div class='container d-flex justify-content-center'>
   <%= form_with model: @post do |form| %>
-    <%= form.label :title, "Title:" %>
-    <br />
-    <%= form.text_field :title, placeholder: "Enter Title"%>
-    <br /><br />
-    <%= form.label :content, "Content:" %>
-    <br />
-    <%= form.text_field :content, placeholder: "Enter what you want to write about"%>
-    <br /><br />
-    <%= form.submit "Submit", class: "submit" %>
+   
+    <div class="py-3">
+      <%= form.label :title, "Title:" %>
+      <br />
+      <%= form.text_field :title, placeholder: "Enter Title"%>
+    </div>
+    
+    <div class="py-3">
+      <%= form.label :content, "Content:" %>
+      <br />
+      <%= form.text_area :content, placeholder: "Enter what you want to write about"%>
+    </div>
+
+    <div class="py-3">
+      <%= form.submit "Submit", class: "submit" %>
+    </div>
+    
   <% end %>
 </div>

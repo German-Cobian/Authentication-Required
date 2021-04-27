@@ -1,25 +1,42 @@
-<h1>Posts#index</h1>
 
+<div class="row">
+    
+  <div class="col-3 mt-5">
+    <h2 class="ml-2 pl-3 pb-4 bg-secondary">Topics</h2>
+      <ul>
+        <% @posts.each do |post| %>
+        <li class="border-bottom">
+            <%= post.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-<ul>
-  <% @posts.each do |post| %>
-   <li>
-       <%= post.title %>
-    </li>
-  <% end %>
-</ul>
+  <div class="col-6 mt-5">
+  <h2 class="pl-3 pb-4 bg-secondary">Content</h2>
+    <ul>
+      <% @posts.each do |post| %>
+      <li class="border-bottom">
+          <%= post.content %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
+  <div class="col-3 mt-5">
+  <h2 class="mr-2 pl-3 pb-4 bg-secondary">Authors</h2>
+    <ul>
+      <% @users.each do |user| %>
+        <% if user_signed_in? %>
+          <li>
+            <%= user.username %>
+          </li>
+        <% else %>
+          <li>
+            ***
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 
-<ul>
-  <% @users.each do |user| %>
-    <% if user_signed_in? %>
-      <li>
-        <%= user.username %>
-      </li>
-    <% else %>
-      <li>
-        ***
-      </li>
-    <% end %>
-  <% end %>
-</ul>
