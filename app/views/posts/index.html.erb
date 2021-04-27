@@ -24,19 +24,19 @@
   </div>
 
   <div class="col-3 mt-5">
-  <h2 class="mr-2 pl-3 pb-4 bg-secondary">Authors</h2>
+    <h2 class="mr-2 pl-3 pb-4 bg-secondary">Authors</h2>
     <ul>
-      <% @users.each do |user| %>
+      <% @posts.each do |post| %>
         <% if user_signed_in? %>
-          <li>
-            <%= user.username %>
-          </li>
-        <% else %>
-          <li>
-            ***
-          </li>
+            <li class="border-bottom">
+              <%= post.user.username %>
+            </li>
+          <% else %>
+            <li class="border-bottom">
+              ***
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
     </ul>
   </div>
-
+</div>
