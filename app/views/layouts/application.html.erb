@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Temp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +11,50 @@
   </head>
 
   <body>
+      <% if flash[:noticer] %>
+      <div class="">
+        <p class=""><%= flash[:notice] %></p>
+      </div>
+    <% elsif flash[:alertr] %>
+      <div class="">
+        <p class=""><%= flash[:alert] %></p>
+      </div>
+    <% end %>
+
+    <nav class="row border-bottom bg-primary">
+      <div class="col-7">
+        <%= link_to root_path, class: "text-light" do %>
+          <h1 class="pl-3">Members Only</h1>
+        <% end %>
+      </div>
+      <div class= "col-5" id="navbarExample">
+        <div class="row pt-3 justify-content-around">
+          
+          <div class="nav-item">
+            <%= link_to "New Topic", new_post_path, class: "text-light" %>
+          </div>
+
+          <% if user_signed_in? %>
+            
+            <div class="nav-item">
+              <%= link_to current_user.username, edit_user_registration_path, class: "text-light"%>
+            </div>
+            <div class="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-light"%>
+            </div>
+            <% else %>
+            <div class="nav-item">
+              <%= link_to "New User", new_user_registration_path, class: "text-light"%>
+            </div>
+            <div class="nav-item">
+              <%= link_to "Log In", new_user_session_path, class: "text-light"%>
+            </div>
+
+          <% end %>
+
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
